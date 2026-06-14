@@ -141,9 +141,7 @@ st.markdown(
 # ---------------------------------------------------------------------------
 @st.cache_resource(show_spinner="Loading knowledge base...")
 def get_vector_db():
-    # Path is relative to where you run `streamlit run app.py` from.
-    # If you run it from inside src/, "../vector_db" is correct.
-    return load_vector_db(vector_db_path="../vector_db")
+    return load_vector_db()
 
 
 # ---------------------------------------------------------------------------

@@ -183,12 +183,18 @@ Generate the review in the following structured format:
 )
 
 
+import os
+
 # 3. LOAD VECTOR DATABASE
 
-def load_vector_db(vector_db_path: str = "../vector_db"):
+def load_vector_db(vector_db_path: str = None):
     # 1. Load the same embedding model used during preprocessing
     # 2. Use it to load the saved FAISS index from disk
     # 3. Return the database object ready for searching
+    if vector_db_path is None:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        vector_db_path = os.path.join(base_dir, "..", "vector_db")
+
     embedding_model = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_NAME)
 
     vector_db = FAISS.load_local(
@@ -200,7 +206,7 @@ def load_vector_db(vector_db_path: str = "../vector_db"):
     return vector_db
 
 
-def load_retriever(vector_db_path: str = "../vector_db", k: int = 3):
+def load_retriever(vector_db_path: str = None, k: int = 3):
     """
     Convenience wrapper: load FAISS and return it as a retriever directly.
     Kept for backward compatibility with earlier code.
