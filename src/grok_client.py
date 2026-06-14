@@ -19,9 +19,9 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 # Load environment variables from .env file (GROQ_API_KEY=...)
+import streamlit as st
 load_dotenv()
-
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY", "")
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 
 # Chat model used for code reviews and confidence scoring.

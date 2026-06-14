@@ -183,9 +183,8 @@ Generate the review in the following structured format:
 )
 
 
-# ---------------------------------------------------------------------------
 # 3. LOAD VECTOR DATABASE
-# ---------------------------------------------------------------------------
+
 def load_vector_db(vector_db_path: str = "../vector_db"):
     # 1. Load the same embedding model used during preprocessing
     # 2. Use it to load the saved FAISS index from disk
