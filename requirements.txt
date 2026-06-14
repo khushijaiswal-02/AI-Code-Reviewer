@@ -1,0 +1,13 @@
+# ── UI ──────────────────────────────────────────────
+streamlit
+streamlit-mic-recorder
+
+# ── AI / RAG ─────────────────────────────────────────
+openai                   # Groq uses OpenAI-compatible SDK
+langchain-huggingface    # HuggingFace embeddings
+langchain-community      # FAISS vector store
+faiss-cpu                # vector similarity search
+sentence-transformers    # embedding model
+
+# ── Utilities ────────────────────────────────────────
+python-dotenv            # load .env file
